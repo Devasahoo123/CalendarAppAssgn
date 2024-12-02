@@ -7,7 +7,7 @@ const path = require("path");
 
 dotenv.config();
 const app = express();
-// const __dirname = path.resolve(); 
+const ___dirname = path.resolve(); 
 
 const corsOptions = {
     origin: function (origin, callback) {
@@ -36,7 +36,7 @@ mongoose
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-app.use(express.static(path.join(__dirname,'client/dist')));
+app.use(express.static(path.join(___dirname,'client/dist')));
 app.get('*',(req,res)=>{
-    res.sendFile(path.join(__dirname,'client','dist','index.html'));
+    res.sendFile(path.join(___dirname,'client','dist','index.html'));
 })

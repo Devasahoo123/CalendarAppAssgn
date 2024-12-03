@@ -36,14 +36,14 @@ const Dashboard = () => {
   };
 
   const handleLogCommunication = (communicationDetails) => {
-    console.log(selectedCompanies);
-    console.log(communicationDetails);
     dispatch(
       logCommunication({
-        selectedCompanies,      // Array of company IDs
-        communicationDetails,   // Object with communication details
+        selectedCompanies, // Array of company IDs
+        communicationDetails, // Object with communication details
       })
-    );
+    ).then(() => {
+      dispatch(fetchCompanies()); // Refetch companies after logging communication
+    });
     setShowModal(false);
     setSelectedCompanies([]);
   };
@@ -162,10 +162,10 @@ const Dashboard = () => {
                   <td className="px-4 py-2">
                   
                     {company.lastFiveCommunications?.map((comm, index) => (
-                      <div key={index}>
-                        <span
+                      <div key={index} className="hover:text-blue-500 hover:font-bold  cursor-pointer ">
+                        <span 
                           data-tooltip-id={`tooltip-${company?._id}-${index}`}
-                          data-tooltip-content={comm?.notes}
+                          data-tooltip-content={comm?.notes} 
                         >
                           {comm?.type} - {new Date(comm?.date).toLocaleDateString()}
                         </span>
@@ -201,14 +201,14 @@ const Dashboard = () => {
 
       {showCalendarModal && (
         <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
-          <div className="relative bg-white p-6 rounded-lg shadow-lg w-96">
+          <div className="relative bg-white p-6 rounded-lg shadow-lg w-[60%]">
             
             <h3 className="text-lg font-medium mb-4">Calendar View</h3>
             <button
               className="absolute top-4 right-4 font-bold "
               onClick={handleCloseCalendar}
             >
-              ✖
+              ✖  
             </button>
             <Calendar companies={companies} />
           </div>

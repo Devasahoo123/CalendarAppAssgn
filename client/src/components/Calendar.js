@@ -1,6 +1,7 @@
 import React from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
+import "./calendar.css";
 
 const CommunicationCalendar = ({ companies }) => {
   const events = companies.flatMap((company) =>
@@ -24,7 +25,7 @@ const CommunicationCalendar = ({ companies }) => {
   };
 
   return (
-    <div className="rounded-lg shadow-lg">
+    <div className="rounded-lg shadow-lg ">
       <Calendar tileContent={tileContent} />
     </div>
   );

@@ -53,7 +53,7 @@ const CompanyForm = ({ onClose, company }) => {
         // Add a new company
         await axios.post("https://calendarappassgn-6.onrender.com/api/admin/addCompany", formData);
       }
-      window.location.reload();
+     
       onClose();
     } catch (error) {
       console.error("Error submitting the form:", error);

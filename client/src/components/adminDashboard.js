@@ -12,7 +12,7 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     dispatch(fetchCompanies());
-  }, [dispatch]);
+  },);
 
   const handleDelete = (id) => {
     if (window.confirm("Are you sure you want to delete this company?")) {

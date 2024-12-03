@@ -30,12 +30,12 @@ export const fetchCompanies = createAsyncThunk("companies/fetch", async () => {
 
 // Async thunk to delete a company
 export const deleteCompany = createAsyncThunk("companies/delete", async (companyId) => {
-  await axios.delete(`http://localhost:8800/api/admin/${companyId}`);
+  await axios.delete(`https://calendarappassgn-6.onrender.com/api/admin/${companyId}`);
   return companyId; 
 });
 
 export const updateCompany = createAsyncThunk("companies/update", async ({ id, updatedData }) => {
-  const response = await axios.put(`http://localhost:8800/api/admin/${id}`, updatedData);
+  const response = await axios.put(`https://calendarappassgn-6.onrender.com/api/admin/${id}`, updatedData);
   return response.data; 
 });
 

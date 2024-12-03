@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Async thunk to fetch companies
 export const fetchCompanies = createAsyncThunk("companies/fetch", async () => {
-  const response = await axios.get("http://localhost:8800/api/admin/getCompanies");
+  const response = await axios.get("https://calendarappassgn-6.onrender.com/api/admin/getCompanies");
 
   return response.data.map((company) => {
     const lastCommunication = company.communications.sort((a, b) => new Date(b.date) - new Date(a.date))[0];
